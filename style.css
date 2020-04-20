@@ -47,6 +47,13 @@ body {
 
 .content{
     display: flex;
+    padding: 1em;
+}
+
+#intro {
+    display: block;
+    padding-left: 1em;
+    margin: auto;
 }
 
 .images-content{
@@ -60,7 +67,7 @@ body {
 .videos-content{
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 1em;
     align-items: center;
 }
@@ -88,7 +95,7 @@ body {
 img{
     margin: auto;
     max-width: 100%;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 video{
@@ -105,6 +112,7 @@ iframe{
 
 .tall{
     grid-row: span 2;
+    max-height: 700px;
 }
 
 .wide{
