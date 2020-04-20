@@ -6,7 +6,7 @@
 </ul>
 
 <script type="text/javascript">
-    var active = document.querySelector("a[href='"+window.location.pathname.substr(1)+"']");
+    var active = document.querySelector("a[href='"+window.location.pathname.split('/').pop()+"']");
     if(!active) {
         active = document.getElementById("home");
     }
@@ -14,3 +14,4 @@
     active.classList.add("active");
 </script>
 
+    
