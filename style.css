@@ -1,27 +1,71 @@
+html {
+    background-color: #ECECEC;
+    font-family: Helvetica;    
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #393E41;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    margin: auto;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ADB2B3;
+    color: black;
+}
+
+.navbar a.active {
+    background-color: #42BFDD;
+    color: white;
+}
+
+.header {
+    margin: 1rem;
+    margin-top: 4.5rem;
+}
+
 .content{
     display: flex;
 }
 
 .images-content{
-    background-color: lightgray;
     padding: 1vmin;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     align-items: center;
 }
 
 .videos-content{
-    background-color: lightgray;
     padding: 1vmin;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     align-items: center;
 }
 
 .projects-content{
-    background-color: lightgray;
     padding: 1vmin;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -37,7 +81,7 @@
     justify-items: center;
 }
 
-.project > img{
+.project img{
     height: 100%;
 }
 

@@ -5,27 +5,34 @@
     <title>Andrew Zhang's Images</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+    <div id="navbar-placeholder">
+    </div>
+    <script type="text/javascript">
+        $("#navbar-placeholder").load("navbar.html");
+    </script>
+
     <div class="header">
         <h1>
             Images
         </h1>
     </div>
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="images.html">Images</a>
-        <a href="videos.html">Videos</a>
-        <a href="projects.html">Projects</a>
-    </div>
+    
     <div class="images-content">
         <img class="tall wide" src="images/Perry.png">        
-        <img src="images/img.jpg">
+        <img onClick="logThis('hello');" src="images/img.jpg">
         <img src="images/icon.png">
         <img src="images/img1.png">
         <img src="images/img2.png">
         <img src="images/output.jpg">  
 
     </div>
+    <script type="text/javascript">
+        function logThis(str){
+            console.log(str);            
+        }
+    </script>
 </body>
 </html>
