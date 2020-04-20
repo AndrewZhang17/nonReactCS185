@@ -21,17 +21,54 @@
     </div>
     
     <div class="images-content">
-        <img class="tall wide" src="images/Perry.png">        
-        <img onClick="logThis('hello');" src="images/img.jpg">
-        <img src="images/icon.png">
-        <img src="images/img1.png">
-        <img src="images/img2.png">
-        <img src="images/output.jpg">  
+        <img class="tall wide" src="images/Perry.png" onclick="showOverlay(this, 'A Perry the Platypus I drew')">        
+        <img src="images/img.jpg" onclick="showOverlay(this)">
+        <img src="images/icon.png" onclick="showOverlay(this)">
+        <img src="images/img1.png" onclick="showOverlay(this)">
+        <img src="images/img2.png" onclick="showOverlay(this)">
+        <img src="images/output.jpg" onclick="showOverlay(this)">  
 
     </div>
     <script type="text/javascript">
         function logThis(str){
             console.log(str);            
+        }
+    </script>
+
+    <div class="overlay">
+        <figure class="overlay-fig">
+            <img id=largeimg src="images/Perry.png">
+            <figcaption id="caption">
+                Perry
+            </figcaption>
+        </figure>
+    </div>
+    <script type="text/javascript">
+        var imgs = document.getElementsByClassName("images-content")[0].children;        
+
+        var overlay = document.getElementsByClassName("overlay")[0];
+        console.log(overlay);
+
+        overlay.addEventListener("click", function(e) {
+            console.log(e.target);
+            console.log(this);
+            
+            
+            if(this === e.target) {
+                hideOverlay();
+            }
+        });
+                
+
+        function showOverlay(e, caption = "hi") {
+            
+            document.getElementById("largeimg").setAttribute("src", e.getAttribute("src"));
+            document.getElementById("caption").innerHTML = caption;
+            overlay.style.display = "block";
+        }   
+
+        function hideOverlay() {
+            overlay.style.display = "none";
         }
     </script>
 </body>
