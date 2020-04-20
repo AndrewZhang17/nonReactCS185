@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div id="navbar-placeholder">
@@ -70,6 +71,12 @@
         function hideOverlay() {
             overlay.style.display = "none";
         }
+    </script>
+
+    <div id="scroll-placeholder">
+    </div>
+    <script type="text/javascript">
+        $("#scroll-placeholder").load("scroll.html");        
     </script>
 </body>
 </html>

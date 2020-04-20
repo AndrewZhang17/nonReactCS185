@@ -68,7 +68,7 @@ body {
 .projects-content{
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     grid-gap: 1em;
     align-items: center;
 }
@@ -146,4 +146,23 @@ figure img {
 figcaption {
     padding-top: 1em;
     text-align: center;
+}
+
+.scroll-btn {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    right: 5%;
+    bottom: 5%;
+    border: none;
+    outline: none;
+    background-color: #393E41;
+    color: white;
+    cursor: pointer;
+    padding: 1em;
+}
+
+.scroll-btn:hover {
+    background-color: #ADB2B3;
+    color: black;
 }
