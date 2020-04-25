@@ -1,0 +1,64 @@
+.tab-list {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #393E41;
+}
+
+.tab {
+    float: left;
+}
+
+.tab p {
+    display: block;
+    color: white;
+    margin: auto;
+    padding: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tab p:hover {
+    background-color: #ADB2B3;
+    color: black;
+}
+
+.content {
+    margin-top: 2.5em;
+    padding: 1em;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.intro {
+    display: flex;
+}
+
+#introImage {
+    width: 30vw;
+    padding: 1em;
+    padding-left: 0;
+}
+
+.grid {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
+    align-items: center;
+}
+
+.img-item {
+    margin: auto;  
+}
+
+.grid-img {
+    max-width: 100%;
+    max-height: 400px;
+}
