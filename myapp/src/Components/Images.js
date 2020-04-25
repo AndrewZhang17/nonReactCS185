@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Grid from './Grid';
 import ImageItem from './ImageItem';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 class Images extends Component {    
 
@@ -18,7 +19,9 @@ class Images extends Component {
                 <h1>
                     Images
                 </h1>
-                <Grid items={images}/>                
+                <SRLWrapper>
+                    <Grid items={images}/>                 
+                </SRLWrapper>
             </div>
         );
     }
