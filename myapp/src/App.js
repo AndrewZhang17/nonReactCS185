@@ -3,6 +3,7 @@ import './App.css'
 import TabList from './Components/TabList';
 import Body from './Components/Body';
 import SimpleReactLightbox from 'simple-react-lightbox';
+import ScrollToTop from './Components/ScrollToTop';
 
 class App extends Component {
     constructor() {
@@ -30,6 +31,10 @@ class App extends Component {
             {
                 id: 3,
                 title: "Videos"
+            },
+            {
+                id: 4,
+                title: "Projects"
             }
         ];
         return (
@@ -41,6 +46,7 @@ class App extends Component {
                     <div className="content">
                         <Body activeTab={this.state.activeTab}/>
                     </div>
+                    <ScrollToTop/>
                 </div>                
             </SimpleReactLightbox>
         );

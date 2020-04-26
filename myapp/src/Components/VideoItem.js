@@ -6,7 +6,7 @@ class VideoItem extends Component {
             return <video className="grid-vid" src={this.props.src} controls></video>
         }
         else if(this.props.type === "iframe") {
-            return <iframe src={this.props.src} allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            return <iframe src={this.props.src} title={this.props.src} allowFullScreen></iframe>
         }
     }
 

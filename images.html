@@ -34,11 +34,6 @@
         <img src="images/caterpillar.jpg" onclick="showOverlay(this, 'I rode a caterpillar')">  
 
     </div>
-    <script type="text/javascript">
-        function logThis(str){
-            console.log(str);            
-        }
-    </script>
 
     <div class="overlay">
         <figure class="overlay-fig">
@@ -52,12 +47,8 @@
         var imgs = document.getElementsByClassName("images-content")[0].children;        
 
         var overlay = document.getElementsByClassName("overlay")[0];
-        console.log(overlay);
 
-        overlay.addEventListener("click", function(e) {
-            console.log(e.target);
-            console.log(this);
-            
+        overlay.addEventListener("click", function(e) {            
             
             if(this === e.target) {
                 hideOverlay();

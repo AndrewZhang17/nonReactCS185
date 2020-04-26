@@ -4,8 +4,8 @@ class ImageItem extends Component {
 
     render() {
         return (
-            <div className="img-item">
-                <img className="grid-img" src={this.props.src}/>
+            <div className={"img-item " + this.props.dim}>
+                <img className="grid-img" src={this.props.src} alt={this.props.alt}/>
             </div>
         );
     }

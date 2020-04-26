@@ -5,7 +5,7 @@ import Grid from './Grid';
 class Videos extends Component {
     importVideos = (r) => {
         return r.keys().map(key => 
-            <VideoItem src={r(key)} type="video"/>
+            <VideoItem src={r(key)} type="video" key={key}/>
         );
     }
 
@@ -19,7 +19,7 @@ class Videos extends Component {
             "https://www.youtube.com/embed/t81529ANEhI",
             "https://www.youtube.com/embed/aYnyMPc3LQ4"
         ].map(link => 
-            <VideoItem src={link} type="iframe"/>
+            <VideoItem src={link} type="iframe" key={link}/>
         );
 
         return (

@@ -59,12 +59,13 @@ h1 {
 }
 
 .grid-img {
+    margin: auto;
     max-width: 100%;
-    max-height: 400px;
 }
 
 .vid-item {
     margin: auto;  
+    z-index: -1;
 }
 
 .grid-vid{
@@ -77,4 +78,39 @@ iframe{
     margin: auto;
     max-width: 100%;
     max-height: 500px;
+}
+
+.project-link {
+    margin: auto;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+}
+
+.grid-project{
+    margin: auto;
+    height: 100%;
+}
+
+.scroll-btn {
+    position: fixed;
+    z-index: 1;
+    right: 5%;
+    bottom: 5%;
+    border: none;
+    outline: none;
+    background-color: #393E41;
+    color: white;
+    cursor: pointer;
+    padding: 1em;
+}
+
+.tall{
+    grid-row: span 2;
+}
+
+.wide{
+    grid-column: span 2;
 }
