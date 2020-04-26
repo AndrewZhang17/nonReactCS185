@@ -39,12 +39,12 @@ class App extends Component {
         ];
         return (
             <SimpleReactLightbox>
-                <div className="body">
-                    <div className="nav-bar">
-                        <TabList tabs={tabs} activeTab={this.state.activeTab} changeTab={this.changeTab}/>
-                    </div>
+                <div className="body">                    
                     <div className="content">
                         <Body activeTab={this.state.activeTab}/>
+                    </div>
+                    <div className="nav-bar">
+                        <TabList tabs={tabs} activeTab={this.state.activeTab} changeTab={this.changeTab}/>
                     </div>
                     <ScrollToTop/>
                 </div>                
