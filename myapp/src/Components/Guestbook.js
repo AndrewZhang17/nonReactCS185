@@ -81,6 +81,9 @@ function Guestbook(props) {
             </h1> 
             <div className="guestbook">
                 <div className="form">
+                    <h2>
+                        Leave your mark!
+                    </h2> 
                     <form onSubmit={handleSubmit}>
                         <label>
                             What is your name?
