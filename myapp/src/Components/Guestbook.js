@@ -6,11 +6,11 @@ function Guestbook(props) {
     const [data, setData] = useState([]);
     const [shouldRender, setShowRender] = useState(true);
     
-    const [name, setName] = useState("")
-    const [desc, setDesc] = useState("")
-    const [msg, setMsg] = useState("")
-    const [visible, setVisible] = useState(false)
-    const [email, setEmail] = useState("")
+    const [name, setName] = useState("");
+    const [desc, setDesc] = useState("");
+    const [msg, setMsg] = useState("");
+    const [visible, setVisible] = useState(false);
+    const [email, setEmail] = useState("");
 
     useEffect(() => {
         if (!firebase.apps.length) {
@@ -25,29 +25,35 @@ function Guestbook(props) {
             //state will be a JSON object after this
             //set your apps state to contain this data however you like
             const newChild = childSnapshot.val();
-            console.log(newChild);
             //i have previously declared a state variable like this: const [data, setData] = useState([]) so that I can make the below call
             setData(curData => [...curData, newChild]);
         })
-        console.log("in useEffect");
     }, [shouldRender])
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        var errors = [];
+       var errors = [];
 
-        if(name.length <= 5 || name.length >= 20) {
+        if(name.length == 0) {
+            errors.push("Name required.");
+        }
+        else if(name.length <= 5 || name.length >= 20) {
             errors.push("Name must be longer than 5 and shorter than 20 characters.");
         }
         if(desc.length >= 100) {
             errors.push("Description must be shorter than 100 characters.");
         }
-        if(msg.length <= 15 || msg.length >= 500){
+        if(msg.length == 0) {
+            errors.push("Message required.");
+        }
+        else if(msg.length <= 15 || msg.length >= 500){
             errors.push("Message must be longer than 15 and shorter than 500 characters.");
         }
 
         if(errors.length > 0) {
+            console.log(errors.length)  
+            alert("ERROR:\n".concat(errors.join("\n")))    
             return;
         }
         
@@ -65,6 +71,7 @@ function Guestbook(props) {
         setMsg("");
         setVisible(false);
         setEmail("");
+        alert("Your message was submitted! Thanks for visiting.")   
     }
 
     return (    
@@ -80,11 +87,11 @@ function Guestbook(props) {
                             <input type="text" value={name} onChange={e => setName(e.target.value)}/>
                         </label>
                         <label>
-                            Write a short description of yourself.
+                            Write a short description about yourself (optional).
                             <input type="text" value={desc} onChange={e => setDesc(e.target.value)}/>
                         </label>
                         <label>
-                            What would you like to say (optional)?
+                            What would you like to say?
                             <input type="text" value={msg} onChange={e => setMsg(e.target.value)}/>
                         </label>
                         <label>
@@ -112,6 +119,12 @@ function Guestbook(props) {
                     ))}
                 </div>
             </div>
+            {/* {showPopup && <dialog className="popup" open>
+                {errors.length ? "ERROR": "Your message was sent!"}
+                {errors.map(e => (
+                    <p>{e}</p>
+                ))}
+            </dialog>} */}
         </div>   
     );
 }
