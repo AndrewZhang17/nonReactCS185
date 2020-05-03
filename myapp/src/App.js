@@ -6,6 +6,7 @@ import SimpleReactLightbox from 'simple-react-lightbox';
 import ScrollToTop from './Components/ScrollToTop';
 
 class App extends Component {
+    
     constructor() {
         super();
         this.state = {
@@ -35,6 +36,10 @@ class App extends Component {
             {
                 id: 4,
                 title: "Projects"
+            },
+            {
+                id: 5,
+                title: "Guestbook"
             }
         ];
         return (

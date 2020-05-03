@@ -3,6 +3,7 @@ import Home from './Home';
 import Images from './Images';
 import Videos from './Videos';
 import Projects from './Projects';
+import Guestbook from './Guestbook';
 
 class Content extends Component {
     displayContent = () => {
@@ -18,6 +19,9 @@ class Content extends Component {
         }
         else if (activeTab === 4) {
             return <Projects/>;
+        }
+        else if (activeTab === 5) {
+            return <Guestbook/>;
         }
     }
     render() {

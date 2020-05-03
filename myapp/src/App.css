@@ -67,13 +67,13 @@ h1 {
     margin: auto;  
 }
 
-.grid-vid{
+.grid-vid {
     margin: auto;
     max-width: 100%;
     max-height: 500px;
 }
 
-iframe{
+iframe {
     margin: auto;
     max-width: 100%;
     max-height: 500px;
@@ -88,7 +88,7 @@ iframe{
     justify-items: center;
 }
 
-.grid-project{
+.grid-project {
     margin: auto;
     max-width: 100%;
     max-height: 20em;
@@ -107,10 +107,86 @@ iframe{
     padding: 1em;
 }
 
-.tall{
+.scroll-btn:hover {
+    background-color: #ADB2B3;
+    color: black;
+}
+
+.tall {
     grid-row: span 2;
 }
 
-.wide{
+.wide {
     grid-column: span 2;
+}
+
+.guestbook {
+    display: flex;
+}
+
+.form {
+    flex-basis: 50%;
+    padding: 1em;
+    margin: 2em;
+    border: 1px solid #393E41;;
+}
+
+.form * input[type=text], .form * select{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #393E41;
+    width: 100%;
+    padding: 0.25em 0;
+    margin: 0.25em 0 1em 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.form * label {
+    font-weight: bold;
+}
+
+.form * input[type=submit] {
+    border: none;
+    outline: none;
+    background-color: #393E41;
+    color: white;
+    cursor: pointer;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.form * input[type=submit]:hover {
+    background-color: #ADB2B3;
+    color: black;
+}
+  
+.posts {
+    flex-basis: 50%;
+    margin: 2em;
+}
+
+.post {
+    margin-bottom: 1em;
+}
+
+.posts * p {
+    margin: 0;
+}
+
+.time {
+    font-style: italic;
+    color: #42BFDD;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.desc {
+    font-style: italic;
+}
+
+.msg {
+    padding-left: 1em;
 }
