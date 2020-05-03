@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import config from '../config';
+import { motion, useAnimation } from "framer-motion"
 const firebase = require('firebase')
 
 function Guestbook(props) {
@@ -12,12 +13,16 @@ function Guestbook(props) {
     const [visible, setVisible] = useState(false);
     const [email, setEmail] = useState("");
 
+    const postsControl = useAnimation();
+    const [newMsg, setNewMsg] = useState("post");
+
     useEffect(() => {
         if (!firebase.apps.length) {
             firebase.initializeApp(config);
         }
         //get a reference to the database
         let ref = firebase.database().ref('messages');
+        var loaded = false;
 
         //retrieve its data
         ref.on('child_added', (childSnapshot, prevChildKey) => {
@@ -26,8 +31,18 @@ function Guestbook(props) {
             //set your apps state to contain this data however you like
             const newChild = childSnapshot.val();
             //i have previously declared a state variable like this: const [data, setData] = useState([]) so that I can make the below call
-            setData(curData => [...curData, newChild]);
+            setData(curData => [newChild, ...curData]);
+
+            if(loaded) {
+                setNewMsg("post new-post");
+            }
         })
+
+        ref.once('value', function(snapshot) {
+            postsControl.start("visible");            
+            loaded = true;
+        });
+
     }, [shouldRender])
 
     const handleSubmit = (evt) => {
@@ -35,7 +50,7 @@ function Guestbook(props) {
 
        var errors = [];
 
-        if(name.length == 0) {
+        if(name.length === 0) {
             errors.push("Name required.");
         }
         else if(name.length <= 5 || name.length >= 20) {
@@ -44,7 +59,7 @@ function Guestbook(props) {
         if(desc.length >= 100) {
             errors.push("Description must be shorter than 100 characters.");
         }
-        if(msg.length == 0) {
+        if(msg.length === 0) {
             errors.push("Message required.");
         }
         else if(msg.length <= 15 || msg.length >= 500){
@@ -74,13 +89,27 @@ function Guestbook(props) {
         alert("Your message was submitted! Thanks for visiting.")   
     }
 
+    const formVariants = {
+        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0 }
+    }
+
+    const postsVariants = {
+        hidden: { opacity: 0, y: -100 },
+        visible: { opacity: 1, y: 0 }
+    }
+
+    const resetAnimation = () => {
+        setNewMsg("post");
+    }
+
     return (    
         <div className="guestbook-page">
             <h1>
                 Guestbook
             </h1> 
             <div className="guestbook">
-                <div className="form">
+                <motion.div className="form" initial="hidden" animate="visible" variants={formVariants} transition={{ duration: 0.5 }}>
                     <h2>
                         Leave your mark!
                     </h2> 
@@ -108,26 +137,24 @@ function Guestbook(props) {
                             What is your email (optional, will not be posted)?:
                             <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
                         </label>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Send Message" />
                     </form>
-                </div>
-                <div className="posts">
-                    {data.map(d => (
-                        <div className="post">
-                            <p className="time">{d.time}</p>
+                </motion.div>
+                <motion.div className="posts" initial="hidden" animate={postsControl} variants={postsVariants} transition={{ duration: 0.5 }}>
+                    <h2>
+                        Messages!
+                    </h2>
+                    {data.map((d, index) => (
+                        <div className={index === 0 ? newMsg: "post"} onAnimationEnd={resetAnimation} key={d.time}>
                             <p className="name">{d.name}</p>
                             <p className="desc">{d.desc}</p>
+                            <p className="time">{d.time}</p>
                             {d.visible && <p className="msg">{d.msg}</p>}
                         </div>
+                        
                     ))}
-                </div>
+                </motion.div>
             </div>
-            {/* {showPopup && <dialog className="popup" open>
-                {errors.length ? "ERROR": "Your message was sent!"}
-                {errors.map(e => (
-                    <p>{e}</p>
-                ))}
-            </dialog>} */}
         </div>   
     );
 }

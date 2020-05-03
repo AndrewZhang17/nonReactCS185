@@ -120,6 +120,10 @@ iframe {
     grid-column: span 2;
 }
 
+.guestbook-page {
+    overflow: hidden;
+}
+
 .guestbook {
     display: flex;
     height: calc(100vh - 10em);
@@ -127,7 +131,6 @@ iframe {
 
 .form {
     flex-basis: 50%;
-    padding: 1em;
     margin: 1em;
     overflow-y: auto;
 }
@@ -173,14 +176,27 @@ iframe {
     flex-basis: 50%;
     margin: 1em;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .post {
     margin-bottom: 1em;
 }
 
+.new-post {
+    animation-name: new-post;
+    animation-duration: 2s; 
+}
+
 .posts * p {
     margin: 0;
+}
+
+.posts > h2 {
+    color: #42BFDD;
+    margin: 0 0 0.25em;
+    font-weight: lighter;
+    font-style: italic;
 }
 
 .time {
@@ -198,4 +214,9 @@ iframe {
 
 .msg {
     padding-left: 1em;
+}
+
+@keyframes new-post {
+    from {background-color: #42BFDD;}
+    to {background-color: transparent;}
 }
