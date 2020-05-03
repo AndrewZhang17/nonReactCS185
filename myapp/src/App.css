@@ -122,13 +122,16 @@ iframe {
 
 .guestbook {
     display: flex;
+    height: calc(100vh - 10em);
 }
 
 .form {
     flex-basis: 50%;
     padding: 1em;
-    margin: 2em;
+    margin: 1em;
     border: 1px solid #393E41;;
+    overflow-y: scroll;
+    height: fit-content;
 }
 
 .form * input[type=text], .form * select{
@@ -137,7 +140,7 @@ iframe {
     border-bottom: 1px solid #393E41;
     width: 100%;
     padding: 0.25em 0;
-    margin: 0.25em 0 1em 0;
+    margin: 0.25em 0 0.25em;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -153,7 +156,7 @@ iframe {
     color: white;
     cursor: pointer;
     padding: 1em;
-    margin-top: 1em;
+    margin: 1em 0 0;
 }
 
 .form * input[type=submit]:hover {
@@ -163,7 +166,8 @@ iframe {
   
 .posts {
     flex-basis: 50%;
-    margin: 2em;
+    margin: 1em;
+    overflow-y: scroll;
 }
 
 .post {

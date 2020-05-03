@@ -75,7 +75,7 @@ function Guestbook(props) {
     }
 
     return (    
-        <div>
+        <div className="guestbook-page">
             <h1>
                 Guestbook
             </h1> 
