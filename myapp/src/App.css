@@ -129,9 +129,7 @@ iframe {
     flex-basis: 50%;
     padding: 1em;
     margin: 1em;
-    border: 1px solid #393E41;;
-    overflow-y: scroll;
-    height: fit-content;
+    overflow-y: auto;
 }
 
 .form * input[type=text], .form * select{
@@ -167,7 +165,7 @@ iframe {
 .posts {
     flex-basis: 50%;
     margin: 1em;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .post {
